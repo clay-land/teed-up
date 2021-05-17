@@ -14,6 +14,11 @@
   color: rgba(0,0,0,0.3);
 }
 
+.footer-list {
+  width: 300px;
+padding: 0px 50px
+}
+
 .footer-list h5 {
   font-weight: bold;
 }
@@ -50,4 +55,19 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+  .options-footer {
+  flex-wrap: wrap;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+  .options-footer {
+  flex-wrap: nowrap;
+  }
 }
