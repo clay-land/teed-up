@@ -28,6 +28,11 @@ class RentalsController < ApplicationController
   end
 
   def update
+    if @rental.update(rental_params)
+      redirect_to @rental
+    else
+      render 'edit'
+    end
   end
 
   def destroy
