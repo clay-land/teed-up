@@ -18,11 +18,11 @@ class BagsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def show; end
-  
+
   def edit; end
-  
+
   def update
     if @bag.update(bag_params)
       redirect_to @bag
@@ -30,7 +30,7 @@ class BagsController < ApplicationController
       render 'edit'
     end
   end
-    
+
   def destroy
     if @bag.destroy
       redirect_to bags_url
@@ -38,13 +38,13 @@ class BagsController < ApplicationController
       redirect_to bags_url
     end
   end
-  
+
   private
 
   def bag_params
-    params.require(:bag).permit(:name, :description, :location, :rate)
+    params.require(:bag).permit(:name, :description, :location, :rate, photos: [])
   end
-  
+
   def set_bag
     @bag = Bag.find(params[:id])
   end

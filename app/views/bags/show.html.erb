@@ -2,5 +2,8 @@
 <p><%= @bag.description %></p>
 <p><%= @bag.location %></p>
 <p><%= @bag.rate %></p>
+<% @bag.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <%= link_to "Edit", edit_bag_path  %>
 <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
