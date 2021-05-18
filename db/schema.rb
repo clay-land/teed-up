@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2021_05_18_182510) do
     t.index ["user_id"], name: "index_bags_on_user_id"
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bag_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bag_id"], name: "index_rentals_on_bag_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,4 +73,6 @@ ActiveRecord::Schema.define(version: 2021_05_18_182510) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bags", "users"
+  add_foreign_key "rentals", "bags"
+  add_foreign_key "rentals", "users"
 end
