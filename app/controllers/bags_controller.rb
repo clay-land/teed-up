@@ -13,7 +13,7 @@ class BagsController < ApplicationController
     @bag = Bag.new(bag_params)
     @bag.user = current_user
     if @bag.save!
-      redirect_to bags_path
+      redirect_to @bag
     else
       render 'new'
     end

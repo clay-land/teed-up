@@ -3,4 +3,4 @@
 <p><%= @bag.location %></p>
 <p><%= @bag.rate %></p>
 <%= link_to "Edit", edit_bag_path  %>
-<%= link_to "Destroy", bag_path(@bag) , method: :destroy  %>
+<%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
