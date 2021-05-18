@@ -1,8 +1,10 @@
-<%= simple_form_for @bag do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :rate %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
-<% end %>
+<div class="bag-form">
+  <%= simple_form_for @bag do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :rate %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
