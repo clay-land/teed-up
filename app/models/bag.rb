@@ -4,4 +4,5 @@ class Bag < ApplicationRecord
   has_many_attached :photos
 
   validates :name, :description, :location, :rate, presence: true
+  validates :rate, numericality: { greater_than_or_equal_to: 0 }
 end
