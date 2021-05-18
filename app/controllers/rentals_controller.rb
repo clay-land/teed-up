@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
   end
 
   def edit
+    @bag = @rental.bag
   end
 
   def update
