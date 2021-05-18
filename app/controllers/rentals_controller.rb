@@ -12,10 +12,14 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    @bag = @rental.bag
   end
 
   def update
+    if @rental.update(rental_params)
+      redirect_to @rental
+    else
+      render 'edit'
+    end
   end
 
   def destroy
