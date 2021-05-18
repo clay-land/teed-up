@@ -10,7 +10,7 @@ class BagPolicy < ApplicationPolicy
   end
 
   def create?
-    user == record.user
+    true
   end
 
   def update?

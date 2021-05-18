@@ -7,13 +7,13 @@ class BagsController < ApplicationController
 
   def new
     @bag = Bag.new
-    authorize @bag
+    authorize(@bag)
   end
 
   def create
     @bag = Bag.new(bag_params)
     @bag.user = current_user
-    authorize @bag
+    authorize(@bag)
     if @bag.save!
       redirect_to @bag
     else
@@ -45,6 +45,6 @@ class BagsController < ApplicationController
 
   def set_bag
     @bag = Bag.find(params[:id])
-    authorize @bag
+    authorize(@bag)
   end
 end
