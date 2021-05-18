@@ -1,0 +1,12 @@
+<h1>List of bags</h1>
+<%= link_to "Create a new Bag", new_bag_path %>
+
+<div>
+  <% @bags.each do |bag| %>
+    <div>
+      <%= bag.name %>
+      <%= link_to "Edit", edit_bag_path(bag)  %>
+    <%= link_to "Destroy", bag_path(bag), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end  %>
+</div>
