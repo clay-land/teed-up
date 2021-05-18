@@ -2,16 +2,18 @@ class BagsController < ApplicationController
   before_action :set_bag, only: [:show, :destroy, :update, :edit]
 
   def index
-    @bags = Bag.all
+    @bags = policy_scope(Bag)
   end
 
   def new
     @bag = Bag.new
+    authorize(@bag)
   end
 
   def create
     @bag = Bag.new(bag_params)
     @bag.user = current_user
+    authorize(@bag)
     if @bag.save!
       redirect_to @bag
     else
@@ -32,11 +34,7 @@ class BagsController < ApplicationController
   end
 
   def destroy
-    if @bag.destroy
-      redirect_to bags_url
-    else
-      redirect_to bags_url
-    end
+    redirect_to bags_url if @bag.destroy
   end
 
   private
@@ -47,6 +45,6 @@ class BagsController < ApplicationController
 
   def set_bag
     @bag = Bag.find(params[:id])
+    authorize(@bag)
   end
-
 end
