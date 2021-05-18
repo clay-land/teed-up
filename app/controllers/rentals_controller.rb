@@ -4,6 +4,8 @@ class RentalsController < ApplicationController
   def show; end
 
   def new
+    @bag = Bag.find(params[:bag_id])
+    @rental = Rental.new
   end
 
   def create
@@ -21,6 +23,10 @@ class RentalsController < ApplicationController
   private
 
   def set_rental
-    @rental = Rental.find_by(params[:id])
+    @rental = Rental.find(params[:id])
+  end
+
+  def rental_params
+    params.require(:rental).permit(:start_date, :end_date)
   end
 end
