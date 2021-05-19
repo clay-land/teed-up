@@ -1,15 +1,52 @@
-<h1><%=  @bag.name %></h1>
-<p><%= @bag.description %></p>
-<p><%= @bag.location %></p>
-<p><%= @bag.rate %></p>
-<% @bag.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div>
+  <div id="map"
+      style="width: 1140px; height: 400px; margin: 10px auto;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
+  <div style=" width: 1140px; height: 400px; margin: auto;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <% i = 1 %>
+      <% ((@bag.photos.size)-1).times do %>
+      <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>"></li>
+      <% i += 1 %>
+      <% end %>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= cl_image_tag @bag.photos.first.key, height: 400, width: 1140, crop: :fill %>
+        </div>
+          <% @bag.photos[1..@bag.photos.size].each do |photo| %>
+          <div class="carousel-item ">
+            <%= cl_image_tag photo.key, height: 400, width: 1140, crop: :fill %>
+          </div>
+        <%end%>
+    </div>
+  </div>
+
+  <div class="container d-flex py-2">
+    <div class="container-bag">
+      <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
+        <h1 ><%=  @bag.name %></h1>
+        <h3 style="margin-left: 8px"><%= @bag.location %></h3>
+      </div>
+      <div>
+        <h2>Description :</h2>
+        <p style="margin-right: 8px;"><%= @bag.description %></p>
+        <h5> <%= @bag.rate %> $ / day</h5>
+        <%= link_to "Back to the index", bags_path %>
+      </div>
+    </div>
+    <%= simple_form_for [@bag, @rental] do |f| %>
+      <%= f.input :start_date, class: 'form-control datepicker' %>
+      <%= f.input :end_date,class: 'form-control datepicker' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
 <% if current_user == @bag.user %>
     <%= link_to "Edit", edit_bag_path %>
     <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
-  <% end %>
-
-
-<%= link_to "Rent this bag", new_bag_rental_path(@bag) %>
+<% end %>

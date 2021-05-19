@@ -1,0 +1,15 @@
+@import "../components/rental_form";
+
+@media (min-width: 100px) and (max-width: 1200px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  #new_rental {
+  width: 100%;
+  margin: 10px auto;
+  border: 1px solid rgb(201, 201, 201);
+  padding: 16px;
+  border-radius: 32px;
+}
+}
