@@ -3,6 +3,7 @@ class RentalsController < ApplicationController
 
   def show
     authorize(@rental)
+    @user = current_user
   end
 
   def new

@@ -3,6 +3,7 @@ class BagsController < ApplicationController
 
   def index
     @bags = policy_scope(Bag)
+    @user = current_user
   end
 
   def new
@@ -21,7 +22,9 @@ class BagsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @user = current_user
+  end
 
   def edit; end
 
