@@ -13,4 +13,8 @@ class Rental < ApplicationRecord
   def end_date_cannot_be_before_start_date
     errors.add(:end_date, "cannot be before start date") if end_date.present? && end_date < start_date
   end
+
+  def accept!
+    self.accepted = true
+  end
 end

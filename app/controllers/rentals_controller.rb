@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:show, :edit, :update, :destroy]
+  before_action :set_rental, only: [:show, :edit, :update, :destroy, :accept]
 
   def show; end
 
@@ -35,6 +35,12 @@ class RentalsController < ApplicationController
   def destroy
     @rental.destroy
     redirect_to bags_path
+  end
+
+  def accept
+    @rental.accept!
+    @rental.save
+    redirect_to rental_path(@rental)
   end
 
   private
