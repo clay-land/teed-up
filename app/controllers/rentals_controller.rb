@@ -2,7 +2,8 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
-    @rentals = policy_scope(Rental)
+    @rentals_user = policy_scope(Rental).where(user: current_user)
+    @rentals_owner = policy_scope(Rental).joins(:bag).where(bags: { user: current_user })
   end
 
   def show; end
