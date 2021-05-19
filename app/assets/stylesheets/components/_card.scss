@@ -17,8 +17,7 @@
 
 .card-title {
   color: black;
-  font-weight: bold;
-  font-size: 32px;
+  font-size: 28px;
 }
 .card-text {
   color: black;
@@ -27,7 +26,8 @@
 .card-price {
   color: black;
   font-weight: bold;
-  font-size: 32px!important;
+  font-size: 28px!important;
+  align-self: end;
 }
 
 .card:hover {
