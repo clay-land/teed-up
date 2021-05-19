@@ -12,8 +12,11 @@
           <li>Start Date: <%= rental.start_date %></li>
           <li>End Date: <%= rental.end_date %></li>
         </ul>
-  
-        <p><%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %></p>
+
+        <p>
+        <%= link_to "View this rental", rental_path(rental) %>
+        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
       </div>
     <% end %>
 </ul>
@@ -31,8 +34,11 @@
           <li>End Date: <%= rental.end_date %></li>
         </ul>
 
+        <p>
+        <%= link_to "View this rental", rental_path(rental) %>
         <%= link_to "Edit this rental", edit_rental_path(rental) %>
         <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
       </div>
     <% end %>
 </ul>
