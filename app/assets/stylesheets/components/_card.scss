@@ -1,3 +1,4 @@
+
 .host-card {
   border-radius: 4px;
   color: $light;
@@ -19,4 +20,63 @@ width: 55%;
 
 .card-title-story {
   text-align: center;
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+  color: black;
+}
+
+.cards a {
+  text-decoration: none;
+}
+
+.cards a:hover {
+  text-decoration: none;
+}
+
+.card-title {
+  color: black;
+  font-size: 28px;
+}
+.card-text {
+  color: black;
+  font-size: 24px;
+}
+.card-price {
+  color: black;
+  font-weight: bold;
+  font-size: 28px!important;
+  align-self: end;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
