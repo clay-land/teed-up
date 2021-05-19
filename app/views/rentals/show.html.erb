@@ -1,14 +1,19 @@
-<div class="container">
-    <h1><%= @rental.user.email %>'s Rental</h1>
+<div class="container mb-5">
+  <div class="row justify-content-center rounded p-5">
+    <div class="col-6 border rounded-lg p-5">
+      <h1 class="my-3 py-3"><%= @rental.user.email %>'s Rental</h1>
 
-  <ul>
-    <li>Start Date: <%= @rental.start_date %></li>
-    <li>End Date: <%= @rental.end_date %></li>
-  </ul>
+      <ul class="list-inline">
+        <li>Start Date: <%= @rental.start_date %></li>
+        <li>End Date: <%= @rental.end_date %></li>
+        <li>Accepted: <strong><%= @rental.accepted ? 'Accepted✔️' : 'Pending' %></strong></li>
+      </ul>
 
-  <% if current_user == @rental.bag.user %>
-    <%= link_to "Edit this rental", edit_rental_path(@rental) %>
-  <% end %>
-  
-  <%= link_to "Cancel this rental", rental_path(@rental), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if current_user == @rental.bag.user %>
+        <%= link_to "Edit this rental", edit_rental_path(@rental), class: "btn btn-brand m-3" %>
+      <% end %>
+
+      <%= link_to "Cancel this rental", rental_path(@rental), class: "btn btn-brand m-3", method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
 </div>
