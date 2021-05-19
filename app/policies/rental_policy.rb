@@ -20,4 +20,8 @@ class RentalPolicy < ApplicationPolicy
   def destroy?
     user == record.user || user == record.bag.user
   end
+
+  def accept?
+    user == record.bag.user
+  end
 end

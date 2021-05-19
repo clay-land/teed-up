@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   end
   resources :rentals, only: [ :show, :destroy,  :edit, :update ] do
     resources :reviews, only: [ :new, :create ]
+
+    member do
+      get :accept
+    end
   end
 end
 
