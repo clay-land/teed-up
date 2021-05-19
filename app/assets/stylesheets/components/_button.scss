@@ -1,12 +1,12 @@
 .btn-brand {
   padding: 8px 48px;
-  background: $green;
+  background: #214F28;
   color: $light;
   border-radius: 4px;
   border: 0;
-  transition: 1s;
+  transition: all .25s ease;
   &:hover {
-    color: $light;
-    border: 1px solid $light;
+    color: $white;
+    background: #1d4724;
   }
 }
