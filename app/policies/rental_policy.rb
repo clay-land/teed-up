@@ -12,4 +12,8 @@ class RentalPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def update?
+    user == record.bag.user
+  end
 end
