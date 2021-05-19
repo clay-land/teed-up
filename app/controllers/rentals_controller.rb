@@ -1,6 +1,11 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy, :accept]
 
+  def index
+    @rentals_user = policy_scope(Rental).where(user: current_user)
+    @rentals_owner = policy_scope(Rental).joins(:bag).where(bags: { user: current_user })
+  end
+
   def show; end
 
   def new
@@ -34,7 +39,7 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental.destroy
-    redirect_to bags_path
+    redirect_to rentals_path
   end
 
   def accept

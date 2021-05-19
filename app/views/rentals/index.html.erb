@@ -1,0 +1,44 @@
+<h1>Test</h1>
+
+<h3>My requests</h3>
+
+<ul class="rental-card">
+  <% @rentals_user.each do |rental| %>
+      <div class="container">
+
+        <p>Bag owner: <strong><%= rental.bag.user.email %></strong></p>
+
+        <ul>
+          <li>Start Date: <%= rental.start_date %></li>
+          <li>End Date: <%= rental.end_date %></li>
+        </ul>
+
+        <p>
+        <%= link_to "View this rental", rental_path(rental) %>
+        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
+      </div>
+    <% end %>
+</ul>
+
+<h3>Incoming requests</h3>
+
+<ul class="rental-card">
+  <% @rentals_owner.each do |rental| %>
+      <div class="container">
+
+        <p>renter: <strong><%= rental.bag.user.email %></strong></p>
+
+        <ul>
+          <li>Start Date: <%= rental.start_date %></li>
+          <li>End Date: <%= rental.end_date %></li>
+        </ul>
+
+        <p>
+        <%= link_to "View this rental", rental_path(rental) %>
+        <%= link_to "Edit this rental", edit_rental_path(rental) %>
+        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
+      </div>
+    <% end %>
+</ul>

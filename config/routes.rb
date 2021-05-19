@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bags do
     resources :rentals, only: [ :new, :create]
   end
-  resources :rentals, only: [ :show, :destroy,  :edit, :update ] do
+  resources :rentals, only: [ :show, :destroy,  :edit, :update, :index ] do
     resources :reviews, only: [ :new, :create ]
 
     member do
