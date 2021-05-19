@@ -5,7 +5,7 @@
   <% @bags.each do |bag| %>
     <div>
       <%= link_to bag.name, bag_path(bag) %>
-      <% if @user == bag.user %>
+      <% if current_user == bag.user %>
       <%= link_to "Edit", edit_bag_path(bag)  %>
       <%= link_to "Destroy", bag_path(bag), method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>

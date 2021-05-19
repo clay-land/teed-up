@@ -6,7 +6,7 @@
     <li>End Date: <%= @rental.end_date %></li>
   </ul>
 
-  <% if @user == @rental.bag.user %>
+  <% if current_user == @rental.bag.user %>
     <%= link_to "Edit this rental", edit_rental_path(@rental) %>
   <% end %>
   
