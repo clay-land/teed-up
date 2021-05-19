@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.bag = @bag
     authorize(@rental)
-    if @rental.save!
+    if @rental.save
       redirect_to @rental
     else
       render 'new'
