@@ -1,6 +1,10 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @rentals = policy_scope(Rental)
+  end
+
   def show; end
 
   def new
@@ -34,7 +38,7 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental.destroy
-    redirect_to bags_path
+    redirect_to rentals_path
   end
 
   private
