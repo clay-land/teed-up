@@ -30,9 +30,8 @@ class RentalsController < ApplicationController
 
   def update
     authorize(@rental)
-    raise
     if @rental.update(rental_params)
-      redirect_to bag_rental_path(@rental)
+      redirect_to rental_path(@rental)
     else
       render 'edit'
     end

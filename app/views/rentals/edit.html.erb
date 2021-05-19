@@ -1,4 +1,4 @@
-<%= simple_form_for([@bag, @rental]), :url => bag_rental_path(@bag, @rental), method: :patch do |f| %>
+<%= simple_form_for([@bag, @rental]) do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit %>
