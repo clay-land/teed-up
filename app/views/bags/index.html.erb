@@ -1,8 +1,13 @@
 <h1>List of bags</h1>
 <%= link_to "Create a new Bag", new_bag_path %>
 
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 <div class="container-fluid d-flex">
-  <div style="width: 60%;">
+  <div style="width: 100%;">
     <h2>Rent a bag next to your place</h2>
     <h4>Near Montréal, Québec</h4>
     <div class="row d-flex m-2">
@@ -22,7 +27,5 @@
       </div>
     </div>
   </div>
-  <div class="map" style="width: 40%;">
-  <img src="https://www.vmcdn.ca/f/files/stalberttoday/images/news/1109-airbnb-sup.jpg;w=960" style="height: 100%;width: 100%" alt="placeholder">
-  </div>
+
 </div>

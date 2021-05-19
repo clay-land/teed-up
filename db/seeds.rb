@@ -14,6 +14,6 @@ brands = %w[Titleist Callaway Nike Ping Taylormade Cobra Mizuno]
   user = User.new(email: Faker::Internet.unique.safe_email)
   user.password = "123456"
   user.save!
-  Bag.create!(name: "#{brands.sample} #{Faker::Creature::Horse.name}" , description: Faker::Hipster.paragraph(sentence_count: 2), location: Faker::Address.full_address, rate: rand(10.0..50.0).round(2), user: User.all.sample )
+  Bag.create!(name: "#{brands.sample} #{Faker::Creature::Horse.name}" , description: Faker::Hipster.paragraph(sentence_count: 2), location: Faker::Address.city, rate: rand(10.0..50.0).round(2), user: User.all.sample )
 end
 
