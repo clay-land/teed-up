@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def show
-    authorize(@rental)
+    # authorize(@rental)
   end
 
   def new
@@ -25,11 +25,11 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    authorize(@rental)
+    # authorize(@rental)
   end
 
   def update
-    authorize(@rental)
+    # authorize(@rental)
     if @rental.update(rental_params)
       redirect_to rental_path(@rental)
     else
@@ -38,14 +38,16 @@ class RentalsController < ApplicationController
   end
 
   def destroy
+    # authorize(@rental)
     @rental.destroy
-    authorize(@rental)
+    redirect_to bags_path
   end
 
   private
 
   def set_rental
     @rental = Rental.find(params[:id])
+    authorize(@rental)
   end
 
   def rental_params
