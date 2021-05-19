@@ -1,11 +1,54 @@
-<h1><%=  @bag.name %></h1>
-<p><%= @bag.description %></p>
-<p><%= @bag.location %></p>
-<p><%= @bag.rate %></p>
-<% @bag.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <% @bag.photos.each do |photo| %>
+    <div class="carousel-item active">
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div id="map"
+     style="width: 1140px; height: 400px; margin: auto;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+<div class="container d-flex py-2">
+  <div class="container-bag">
+    <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
+      <h1 ><%=  @bag.name %></h1>
+      <h3 style="margin-left: 8px"><%= @bag.location %></h3>
+    </div>
+    <div>
+      <h2>Description :</h2>
+      <p><%= @bag.description %></p>
+      <h5> <%= @bag.rate %> $ / day</h5>
+      <% @bag.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+  <%= simple_form_for [@bag, @rental] do |f| %>
+  <%= f.input :start_date, class: 'form-control datepicker' %>
+  <%= f.input :end_date,class: 'form-control datepicker' %>
+  <%= f.submit %>
 <% end %>
 
+</div>
 <% if current_user == @bag.user %>
     <%= link_to "Edit", edit_bag_path %>
     <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>

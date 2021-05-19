@@ -28,7 +28,15 @@ class BagsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @rental = Rental.new
+    @markers = [
+      {
+        lat: @bag.latitude,
+        lng: @bag.longitude
+      }
+    ]
+  end
 
   def edit; end
 
