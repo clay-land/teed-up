@@ -4,9 +4,9 @@
       <h1 class="my-3 py-3"><%= @rental.user.email %>'s Rental</h1>
 
       <ul class="list-inline">
-        <li>Start Date: <%= @rental.start_date %></li>
-        <li>End Date: <%= @rental.end_date %></li>
-        <li>Accepted: <strong><%= @rental.accepted ? 'Accepted✔️' : 'Pending' %></strong></li>
+        <li>Start Date: <%= @rental.start_date.strftime("%b %d, %Y") %></li>
+        <li>End Date: <%= @rental.end_date.strftime("%b %d, %Y") %></li>
+        <li>Accepted: <strong><%= @rental.accepted ? 'Yes✔️' : 'Pending..' %></strong></li>
       </ul>
 
       <% if current_user == @rental.bag.user %>
