@@ -16,7 +16,7 @@
         <% @bags.each do |bag| %>
           <a href=" <%= bag_path(bag) %>">
             <div class="card mx-2" >
-              <img class="card-img-top" src="https://i.pinimg.com/originals/93/44/61/93446102dbeefc7769317f3b817cdaca.jpg" alt="Card image cap">
+              <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
               <div class="card-body">
                 <p><%= bag.location %></p>
                 <h5> <%= bag.name %> </h5>
