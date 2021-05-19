@@ -38,6 +38,8 @@ class RentalsController < ApplicationController
   end
 
   def destroy
+    @rental.destroy
+    authorize(@rental)
   end
 
   private
