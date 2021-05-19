@@ -14,7 +14,7 @@
     <div class="row d-flex justify-content-around ">
       <div class="cards">
         <% @bags.each do |bag| %>
-          <a href=" <%= bag_path(bag) %>">
+          <a class="card-a" href=" <%= bag_path(bag) %>">
             <div class="card mx-2" >
               <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
               <div class="card-body">
