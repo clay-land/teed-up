@@ -1,12 +1,28 @@
 <h1>List of bags</h1>
 <%= link_to "Create a new Bag", new_bag_path %>
 
-<div>
-  <% @bags.each do |bag| %>
-    <div>
-      <%= link_to bag.name, bag_path(bag) %>
-      <%= link_to "Edit", edit_bag_path(bag)  %>
-    <%= link_to "Destroy", bag_path(bag), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="container-fluid d-flex">
+  <div style="width: 60%;">
+    <h2>Rent a bag next to your place</h2>
+    <h4>Near Montréal, Québec</h4>
+    <div class="row d-flex m-2">
+      <div class="cards">
+        <% @bags.each do |bag| %>
+          <a href=" <%= bag_path(bag) %>">
+            <div class="card">
+              <img class="card-img-top" src="https://i.pinimg.com/originals/93/44/61/93446102dbeefc7769317f3b817cdaca.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text"><%= bag.location %></p>
+                <h5 class="card-title"> <%= bag.name %> </h5>
+                <h5 class="card-price"> <%= bag.rate %> $ / day</h5>
+              </div>
+            </div>
+          </a>
+        <% end  %>
+      </div>
     </div>
-  <% end  %>
+  </div>
+  <div class="map" style="width: 40%;">
+  <img src="https://www.vmcdn.ca/f/files/stalberttoday/images/news/1109-airbnb-sup.jpg;w=960" style="height: 100%;width: 100%" alt="placeholder">
+  </div>
 </div>
