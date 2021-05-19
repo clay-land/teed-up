@@ -25,9 +25,16 @@ class RentalsController < ApplicationController
   end
 
   def edit
+    authorize(@rental)
   end
 
   def update
+    authorize(@rental)
+    if @rental.update(rental_params)
+      redirect_to rental_path(@rental)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

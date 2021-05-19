@@ -6,6 +6,6 @@
     <li>End Date: <%= @rental.end_date %></li>
   </ul>
 
-  <%= link_to "Edit this rental (bag owner)", edit_bag_rental_path(@rental) %>
+  <%= link_to "Edit this rental (bag owner)", edit_rental_path(@rental) %>
   <%= link_to "Cancel this rental", rental_path(@rental), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
