@@ -1,0 +1,22 @@
+.host-card {
+  border-radius: 4px;
+  color: $light;
+  height: 320px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.host-card-content {
+width: 55%;
+}
+
+.card-text-icon {
+  color: $green;
+  font-size: 24px;
+  text-align: center;
+}
+
+.card-title-story {
+  text-align: center;
+}
