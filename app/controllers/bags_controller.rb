@@ -3,6 +3,13 @@ class BagsController < ApplicationController
 
   def index
     @bags = policy_scope(Bag)
+
+    @markers = @bags.geocoded.map do |bag|
+      {
+        lat: bag.latitude,
+        lng: bag.longitude
+      }
+    end
   end
 
   def new
