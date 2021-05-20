@@ -1,2 +1,12 @@
-<h2><%= bag.name %></h2>
-<p><%= bag.location %></p>
+<div class="container d-flex">
+  <%= cl_image_tag bag.photos.first.key, class: "card-img-popup", crop: :fill %>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="pt-2"><%= bag.name %></h2>
+      <p>Location: <%= bag.location %></p>
+      <p>Rate: $<%= bag.rate %> per day</p>
+      <%= link_to "Rent bag", bag_path(bag), class: "btn btn-brand" %>
+    </div>
+  </div>
+</div>
+
