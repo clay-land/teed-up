@@ -5,6 +5,8 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+  <p id="widget">Test</p>
+
   <div style=" width: 1140px; height: 400px; margin: auto;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -39,14 +41,19 @@
         <%= link_to "Back to the index", bags_path %>
       </div>
     </div>
-    <%= simple_form_for [@bag, @rental] do |f| %>
-      <%= f.input :start_date, class: 'form-control datepicker' %>
-      <%= f.input :end_date,class: 'form-control datepicker' %>
-      <%= f.submit %>
-    <% end %>
   </div>
 </div>
 <% if current_user == @bag.user %>
     <%= link_to "Edit", edit_bag_path %>
     <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
 <% end %>
+
+<div id='bag-rental-dates' data-unavailable="<%= @bag.unavailable_dates.to_json %>">
+  <% if current_user.id != @bag.user_id  %>
+    <%= simple_form_for([@bag, @rental]) do |f| %>
+      <%= f.input :start_date, as: :string, type: :text %>
+      <%= f.input :end_date, as: :string, type: :text %>
+      <%= f.submit "Book", class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+</div>

@@ -21,7 +21,7 @@ class BagsController < ApplicationController
     @bag = Bag.new(bag_params)
     @bag.user = current_user
     authorize(@bag)
-    if @bag.save!
+    if @bag.save
       redirect_to @bag
     else
       render 'new'
