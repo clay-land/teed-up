@@ -1,5 +1,9 @@
 <div class="container d-flex">
-  <%= cl_image_tag bag.photos.first.key, class: "card-img-popup", crop: :fill %>
+  <% if bag.photos.attached? %>
+    <%= cl_image_tag bag.photos.first.key, class: "card-img-popup", crop: :fill %>
+  <% else %>
+    <%= cl_image_tag "3tzknnb0s353vzvkwaecqc1a7y1y", class: "card-img-popup", crop: :fill %>
+  <% end %>
   <div class="container">
     <div class="text-center">
       <h2 class="pt-2"><%= bag.name %></h2>

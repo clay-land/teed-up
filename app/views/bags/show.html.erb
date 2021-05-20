@@ -14,6 +14,7 @@
       <% end %>
     </ol>
     <div class="carousel-inner">
+      <% if @bag.photos.attached? %>
         <div class="carousel-item active">
           <%= cl_image_tag @bag.photos.first.key, height: 400, width: 1140, crop: :fill %>
         </div>
@@ -21,7 +22,12 @@
           <div class="carousel-item ">
             <%= cl_image_tag photo.key, height: 400, width: 1140, crop: :fill %>
           </div>
-        <%end%>
+        <% end %>
+      <% else %>
+        <div class="carousel-item active">
+          <%= cl_image_tag "3tzknnb0s353vzvkwaecqc1a7y1y", height: 400, width: 1140, crop: :fill %>
+        </div>
+      <% end %>
     </div>
   </div>
 
