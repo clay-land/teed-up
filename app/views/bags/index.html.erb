@@ -7,6 +7,17 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+<div class="search-bar">
+  <%= form_with url: bags_path, local: true, method: :get do |form| %>
+    <%= form.label :query, "Search by:" %>
+    <%= form.radio_button :search_by, "location", checked: "checked" %>
+    <%= form.label :search_by_location, "Location" %>
+    <%= form.radio_button :search_by, "brand" %>
+    <%= form.label :search_by_brand, "Brand" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search", class: "btn btn-brand"%>
+  <% end %>
+</div>
 <div class="container-fluid d-flex justify-content-center py-3">
   <div style="width: 90%;">
     <h2>Rent a bag next to your place</h2>
