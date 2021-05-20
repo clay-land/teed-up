@@ -30,7 +30,7 @@
               <% if bag.photos.attached? %>
                 <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
               <% else %>
-                <%= asset_path 'bag_1.jpg', class: "card-img-top" %>
+                <%= cl_image_tag "3tzknnb0s353vzvkwaecqc1a7y1y", class: "card-img-top" %>
               <% end %>
               <div class="card-body">
                 <p><%= bag.location %></p>
