@@ -7,10 +7,11 @@
     <div class="rental-card">
 
       <p>Bag owner: <strong><%= rental.bag.user.email %></strong></p>
+      <p>Bag: <strong><%= rental.bag.name %></strong></p>
 
-      <ul>
-        <li>Start Date: <%= rental.start_date %></li>
-        <li>End Date: <%= rental.end_date %></li>
+      <ul class="date">
+        <li>Start Date: <%= rental.start_date.strftime("%b %d, %Y") %></li>
+        <li>End Date: <%= rental.end_date.strftime("%b %d, %Y") %></li>
       </ul>
 
       <div class="links">
@@ -27,9 +28,10 @@
   <% @rentals_owner.each do |rental| %>
       <div class="rental-card">
 
-        <p>renter: <strong><%= rental.bag.user.email %></strong></p>
+        <p>Renter: <strong><%= rental.bag.user.email %></strong></p>
+        <p>Bag: <strong><%= rental.bag.name %></strong></p>
 
-        <ul>
+        <ul class="date">
           <li>Start Date: <%= rental.start_date %></li>
           <li>End Date: <%= rental.end_date %></li>
         </ul>
@@ -37,9 +39,7 @@
         <div class="links">
           <%= link_to "View this rental", rental_path(rental) %>
         
-          <%= link_to "Edit this rental", edit_rental_path(rental) %>
-        
-          <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel" %>
         </div>
       </div>
     <% end %>
