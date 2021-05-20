@@ -7,4 +7,10 @@ class Bag < ApplicationRecord
 
   validates :name, :description, :location, :rate, presence: true
   validates :rate, numericality: { greater_than_or_equal_to: 0 }
+
+  def unavailable_dates
+    rentals.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
