@@ -39,10 +39,17 @@ a.nav-link {
   padding: 8px;
   border-radius: 32px;
   box-shadow: 0px 0px 6px rgb(204, 204, 204);
+  max-width: 300px;
 }
 
 a.navbar-brand {
   background-color: white;
+  width: 50px;
   border-radius: 50%;
   box-shadow: 0px 0px 6px rgb(192, 192, 192);
+}
+
+.navbar-toggler {
+  position: fixed;
+  right: 20px;
 }
