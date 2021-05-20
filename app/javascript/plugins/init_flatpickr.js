@@ -1,7 +1,9 @@
-// First we define two variables that are going to grab our inputs field. You can check the ids of the inputs with the Chrome inspector.
-const startDateInput = document.getElementById('rental_start_date');
-const endDateInput = document.getElementById('rental_end_date');
+import flatpickr from "flatpickr";
 
+const flatPickCalendar = () => {
+  // First we define two variables that are going to grab our inputs field. You can check the ids of the inputs with the Chrome inspector.
+  const startDateInput = document.getElementById('rental_start_date');
+  const endDateInput = document.getElementById('rental_end_date');
 // Check that the query selector id matches the one you put around your form.
   if (startDateInput) {
     const unavailableDates = JSON.parse(document.querySelector('#bag-rental-dates').dataset.unavailable)
@@ -14,7 +16,7 @@ const endDateInput = document.getElementById('rental_end_date');
     });
 
     console.log('im in the file')
-
+    
     startDateInput.addEventListener("change", (e) => {
       if (startDateInput != "") {
         endDateInput.disabled = false
@@ -26,3 +28,6 @@ const endDateInput = document.getElementById('rental_end_date');
       });
     })
   };
+};
+
+export { flatPickCalendar };
