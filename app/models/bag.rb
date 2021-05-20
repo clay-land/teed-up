@@ -14,4 +14,16 @@ class Bag < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+  
+  include PgSearch::Model
+  pg_search_scope :search_by_location,
+    against: :location,
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
+  pg_search_scope :search_by_brand,
+    against: { name: "A", description: "B" },
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
 end
