@@ -3,7 +3,7 @@ class BagsController < ApplicationController
 
   def index
     if params[:query].present? && params[:search_by] == "location"
-      @bags = policy_scope(Bag.search_by_location(params[:query]))
+      @bags = policy_scope(Bag.near(params[:query], params[:km].to_i))
     elsif params[:query].present? && params[:search_by] == "brand"
       @bags = policy_scope(Bag.search_by_brand(params[:query]))
     else
