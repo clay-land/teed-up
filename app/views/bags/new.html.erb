@@ -1,10 +1,10 @@
 <div class="bag-form">
   <%= simple_form_for @bag do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, label: "Bag Name" %>
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :rate %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-brand" %>
   <% end %>
 </div>
