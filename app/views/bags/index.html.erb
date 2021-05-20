@@ -25,8 +25,9 @@
     <div class="row d-flex justify-content-around ">
       <div class="cards">
         <% @bags.each do |bag| %>
+        <% if current_user == bag.user %>
           <a class="card-a" href=" <%= bag_path(bag) %>">
-            <div class="card mx-2" >
+            <div class="card mx-0 owned">
               <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
               <div class="card-body">
                 <p><%= bag.location %></p>
@@ -35,6 +36,19 @@
               </div>
             </div>
           </a>
+          <% else %>
+          <a class="card-a" href=" <%= bag_path(bag) %>">
+            <div class="card mx-0">
+              <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+              <div class="card-body">
+                <p><%= bag.location %></p>
+                <h5> <%= bag.name %> </h5>
+                <h5> <%= bag.rate %> $ / day</h5>
+              </div>
+            </div>
+          </a>
+          <% end %>
+          
         <% end  %>
       </div>
     </div>
