@@ -33,3 +33,16 @@ div.menu {
 a.nav-link {
   color: #000000 !important;
 }
+
+#navbarSupportedContent {
+  background-color: white;
+  padding: 8px;
+  border-radius: 32px;
+  box-shadow: 0px 0px 6px rgb(204, 204, 204);
+}
+
+a.navbar-brand {
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 6px rgb(192, 192, 192);
+}
