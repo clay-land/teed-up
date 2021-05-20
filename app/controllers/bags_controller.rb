@@ -2,7 +2,13 @@ class BagsController < ApplicationController
   before_action :set_bag, only: [:show, :destroy, :update, :edit]
 
   def index
-    @bags = policy_scope(Bag)
+    if params[:query].present? && params[:search_by] == "location"
+      @bags = policy_scope(Bag.search_by_location(params[:query]))
+    elsif params[:query].present? && params[:search_by] == "brand"
+      @bags = policy_scope(Bag.search_by_brand(params[:query]))
+    else
+      @bags = policy_scope(Bag)
+    end
 
     @markers = @bags.geocoded.map do |bag|
       {
