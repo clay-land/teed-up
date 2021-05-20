@@ -13,7 +13,8 @@ class BagsController < ApplicationController
     @markers = @bags.geocoded.map do |bag|
       {
         lat: bag.latitude,
-        lng: bag.longitude
+        lng: bag.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bag: bag })
       }
     end
   end
