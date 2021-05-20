@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initProximitysearch } from '../components/init_proximitysearch';
 
 // MapBox import
 import { initMapbox } from '../plugins/init_mapbox';
@@ -37,6 +37,7 @@ import { flatPickCalendar } from '../plugins/init_flatpickr';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   flatPickCalendar();
+  initProximitysearch();
 })
 
 // // Turbolinks Import

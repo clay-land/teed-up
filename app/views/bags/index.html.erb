@@ -15,13 +15,24 @@
     <%= form.radio_button :search_by, "brand" %>
     <%= form.label :search_by_brand, "Brand" %>
     <%= form.text_field :query %>
+    <span>
+      <select name="km" id="km-select">
+        <option value="10">KMs</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="75">75</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+    </select>
+  </span>
     <%= form.submit "Search", class: "btn btn-brand"%>
   <% end %>
 </div>
 <div class="container-fluid d-flex justify-content-center py-3">
   <div style="width: 90%;">
     <h2>Rent a bag next to your place</h2>
-    <h4>Near Florida, US</h4>
+    <h4><%= params[:query].present? ? "All Bags Near #{params[:query].capitalize}" : "All Bags"%></h4>
     <div class="row d-flex justify-content-around ">
       <div class="cards">
         <% @bags.each do |bag| %>
