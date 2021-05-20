@@ -24,16 +24,21 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import flatpickr from "flatpickr";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 // MapBox import
-
 import { initMapbox } from '../plugins/init_mapbox';
+
+// Flatpickr import
+import { flatPickCalendar } from '../plugins/init_flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  flatPickCalendar;
 })
 
 // // Turbolinks Import

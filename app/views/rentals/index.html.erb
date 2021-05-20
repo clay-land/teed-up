@@ -2,30 +2,30 @@
 
 <h3>My requests</h3>
 
-<ul class="rental-card">
+<div class="rental-container">
   <% @rentals_user.each do |rental| %>
-      <div class="container">
+    <div class="rental-card">
 
-        <p>Bag owner: <strong><%= rental.bag.user.email %></strong></p>
+      <p>Bag owner: <strong><%= rental.bag.user.email %></strong></p>
 
-        <ul>
-          <li>Start Date: <%= rental.start_date %></li>
-          <li>End Date: <%= rental.end_date %></li>
-        </ul>
+      <ul>
+        <li>Start Date: <%= rental.start_date %></li>
+        <li>End Date: <%= rental.end_date %></li>
+      </ul>
 
-        <p>
+      <div class="links">
         <%= link_to "View this rental", rental_path(rental) %>
-        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
-        </p>
+        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel" %>
       </div>
-    <% end %>
-</ul>
+    </div>
+  <% end %>
+</div>
 
 <h3>Incoming requests</h3>
 
-<ul class="rental-card">
+<div class="rental-container">
   <% @rentals_owner.each do |rental| %>
-      <div class="container">
+      <div class="rental-card">
 
         <p>renter: <strong><%= rental.bag.user.email %></strong></p>
 
@@ -34,11 +34,15 @@
           <li>End Date: <%= rental.end_date %></li>
         </ul>
 
-        <p>
-        <%= link_to "View this rental", rental_path(rental) %>
-        <%= link_to "Edit this rental", edit_rental_path(rental) %>
-        <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
-        </p>
+        <div class="links">
+          <%= link_to "View this rental", rental_path(rental) %>
+        
+        
+          <%= link_to "Edit this rental", edit_rental_path(rental) %>
+        
+        
+          <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
       </div>
     <% end %>
-</ul>
+</div>
