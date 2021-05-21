@@ -11,3 +11,18 @@
     background: #1d4724;
   }
 }
+
+#back-button {
+  padding: 8px 16px;
+  background: #1d4724;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid grey;
+  transition: all .1s ease;
+  &:hover {
+    color: $black;
+    background: #ffffff;
+    text-decoration: none;
+  }
+}
