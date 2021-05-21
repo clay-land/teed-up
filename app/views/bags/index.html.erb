@@ -1,14 +1,13 @@
-<div class="container-fluid d-flex justify-content-left align-items-center py-3" style="width: 90%; ">
-  <h1>List of bags</h1>
-  <%= link_to "Create a new Bag", new_bag_path, class: "btn btn-primary m-3" %>
+<div class="container-fluid d-flex justify-content-center pb-3">
+  <h1 style="margin-top: 80px">List of bags</h1>
 </div>
 <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    style="width: 80%; height: 600px; margin: 18px auto;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<div class="search-bar">
-  <%= form_with url: bags_path, local: true, method: :get do |form| %>
+<div class="search-bar d-flex justify-content-center">
+  <%= form_with url: bags_path, local: true, html: { class: "form-search justify-content-between align-items-center " } ,method: :get do |form| %>
     <%= form.label :query, "Search by:" %>
     <%= form.radio_button :search_by, "location", checked: "checked" %>
     <%= form.label :search_by_location, "Location" %>
@@ -26,11 +25,11 @@
         <option value="500">500</option>
     </select>
   </span>
-    <%= form.submit "Search", class: "btn btn-brand"%>
+    <%= form.submit "Search", class: "btn"%>
   <% end %>
 </div>
 <div class="container-fluid d-flex justify-content-center py-3">
-  <div style="width: 90%;">
+  <div style="width: 80%;">
     <h2>Rent a bag next to your place</h2>
     <h4><%= params[:query].present? ? "All Bags Near #{params[:query].capitalize}" : "All Bags"%></h4>
     <div class="row d-flex justify-content-around ">
@@ -71,4 +70,3 @@
     </div>
   </div>
 </div>
-

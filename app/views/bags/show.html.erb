@@ -24,7 +24,13 @@
         <h5 id="bag-rate"> <%= @bag.rate %></h5>
         <h5>&nbsp per day</h5>
         </div>
-        <%= link_to "Back to the index", bags_path %>
+        <br>
+        <%= link_to "Back", bags_path, class: "btn btn-brand" %>
+        <% if current_user == @bag.user %>
+            <%= link_to "Edit Bag", edit_bag_path, class: "btn btn-brand" %>
+            <%= link_to "Delete Bag", bag_path(@bag), class: "btn btn-brand", method: :delete, data: { confirm: "Are you sure?" }   %>
+        <% end %>
+        <br>
       </div>
     </div>
     <div id='bag-rental-dates' data-unavailable="<%= @bag.unavailable_dates.to_json %>">
@@ -42,7 +48,3 @@
     </div>
   </div>
 </div>
-  <% if current_user == @bag.user %>
-      <%= link_to "Edit", edit_bag_path %>
-      <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
-  <% end %>
