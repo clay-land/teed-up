@@ -3,7 +3,6 @@
   margin: 0 auto;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  
 }
 
 .rental-card {
@@ -22,7 +21,7 @@
   justify-content: space-evenly;
 }
 
-.links > a {
+a.green {
   text-decoration: none;
   color: white;
   background-color: #1d4724e1;
@@ -34,7 +33,7 @@
   text-align: center;
 }
 
-.links > a.cancel {
+a.cancel {
   text-decoration: none;
   color: white;
   background-color: #AF6408;
@@ -45,11 +44,11 @@
   margin: 4px;
 }
 
-.links > a:hover {
+a.green:hover {
   background-color: #1d4724;
 }
 
-.links > a.cancel:hover {
+a.cancel:hover {
   background-color: #945509;
 }
 

@@ -15,7 +15,7 @@
       </ul>
 
       <div class="links">
-        <%= link_to "View this rental", rental_path(rental) %>
+        <%= link_to "View this rental", rental_path(rental), class: "green" %>
         <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel" %>
       </div>
     </div>
@@ -37,7 +37,7 @@
         </ul>
 
         <div class="links">
-          <%= link_to "View this rental", rental_path(rental) %>
+          <%= link_to "View this rental", rental_path(rental), class: "green" %>
         
           <%= link_to "Cancel this rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: "cancel" %>
         </div>
