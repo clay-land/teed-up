@@ -17,7 +17,7 @@ const flatPickCalendar = () => {
     list.innerHTML = "";
     list.insertAdjacentHTML("beforeend", `<div class="d-flex justify-content-between mt-2">\
                                               <li class="text-total">Total days:</li>\
-                                              <li class="text-total">${nbOfDays} days</li>\
+                                              <li class="text-total">${nbOfDays} day(s)</li>\
                                             </div>\
                                             <div class="d-flex justify-content-between">\
                                               <li class="text-total">Bag rate:</li>\
