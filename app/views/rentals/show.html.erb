@@ -17,12 +17,13 @@
       </ul>
 
       <% if current_user == @rental.bag.user %>
-        <%= link_to "Accept", accept_rental_path(@rental), class: "btn btn-brand my-3" %>
-        <%= link_to "Edit", edit_rental_path(@rental), class: "btn btn-brand my-3" %>
+      
+        <%= link_to "Accept", accept_rental_path(@rental), class: "green" %>
+        <%= link_to "Edit", edit_rental_path(@rental), class: "green" %>
       <% end %>
 
-      <%= link_to "Cancel This Rental", rental_path(@rental), class: "btn btn-brand my-3", method: :delete, data: { confirm: "Are you sure?" } %>
-      <%= link_to "Back To Rentals", rentals_path, class: "btn btn-brand my-3" %>
+      <%= link_to "Cancel This Rental", rental_path(@rental), class: "cancel", method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Back To Rentals", rentals_path, class: "green" %>
     </div>
   </div>
 </div>
