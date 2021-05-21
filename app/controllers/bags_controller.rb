@@ -14,7 +14,8 @@ class BagsController < ApplicationController
       {
         lat: bag.latitude,
         lng: bag.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { bag: bag })
+        info_window: render_to_string(partial: "info_window", locals: { bag: bag }),
+        image_url: helpers.asset_url('golf-tee-white-green.png')
       }
     end
   end
@@ -40,7 +41,9 @@ class BagsController < ApplicationController
     @markers = [
       {
         lat: @bag.latitude,
-        lng: @bag.longitude
+        lng: @bag.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bag: @bag }),
+        image_url: helpers.asset_url('golf-tee-white-green.png')
       }
     ]
   end
