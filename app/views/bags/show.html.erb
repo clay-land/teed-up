@@ -25,10 +25,10 @@
         <h5>&nbsp per day</h5>
         </div>
         <br>
-        <%= link_to "Back", bags_path, class: "btn btn-brand" %>
+        <%= link_to "Back", bags_path, id: "back-button" %>
         <% if current_user == @bag.user %>
-            <%= link_to "Edit Bag", edit_bag_path, class: "btn btn-brand" %>
-            <%= link_to "Delete Bag", bag_path(@bag), class: "btn btn-brand", method: :delete, data: { confirm: "Are you sure?" }   %>
+            <%= link_to "Edit Bag", edit_bag_path, id: "back-button" %>
+            <%= link_to "Delete Bag", bag_path(@bag), id: "back-button", method: :delete, data: { confirm: "Are you sure?" }   %>
         <% end %>
         <br>
       </div>
