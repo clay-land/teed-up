@@ -12,26 +12,26 @@ const flatPickCalendar = () => {
     const startDate = new Date(startDateValue);
     const endDateValue = endDateInput.value;
     const endDate = new Date(endDateValue);
-    const nbOfDays = (endDate - startDate) / (1000 * 60 * 60 * 24)
+    const nbOfDays = (endDate - startDate) / (1000 * 60 * 60 * 24) + 1
     const list = document.getElementById('display-list');
 
     list.innerHTML = "";
     list.insertAdjacentHTML("beforeend", `<div class="d-flex justify-content-between mt-2">\
                                               <li class="text-total">Total days:</li>\
-                                              <li class="text-total">${nbOfDays} days</li>\
+                                              <li class="text-total">${nbOfDays} day(s)</li>\
                                             </div>\
                                             <div class="d-flex justify-content-between">\
                                               <li class="text-total">Bag rate:</li>\
-                                              <li class="text-total"> ${displayRate.innerHTML}$/day </li>\
+                                              <li class="text-total"> $ ${displayRate.innerHTML} per day </li>\
                                             </div>\
                                             <hr>\
-                                            <li class="total-price" style="text-align: right;"><strong>Total: ${Math.floor(nbOfDays * displayRate.innerHTML)}$ </strong></li>`);
+                                            <li class="total-price" style="text-align: right;"><strong>Total: $ ${(nbOfDays * displayRate.innerHTML).toFixed(2)} </strong></li>`);
   }
   // Check that the query selector id matches the one you put around your form.
   if (startDateInput) {
     const unavailableDates = JSON.parse(document.querySelector('#bag-rental-dates').dataset.unavailable)
     endDateInput.disabled = true
-    
+
     flatpickr(startDateInput, {
       minDate: "today",
       disable: unavailableDates,
@@ -39,9 +39,9 @@ const flatPickCalendar = () => {
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
     });
-    
+
     console.log('im in the file')
-    
+
     startDateInput.addEventListener("change", (e) => {
       if (startDateInput != "") {
         endDateInput.disabled = false

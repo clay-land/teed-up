@@ -9,7 +9,7 @@
       <%= render '../views/layouts/gallery' %>
     </div>
   </div>
-   
+
   <div class="container d-flex py-2">
     <div class="container-bag">
       <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
@@ -20,8 +20,9 @@
         <h2>Description :</h2>
         <p style="margin-right: 8px;"><%= @bag.description %></p>
         <div class="d-flex">
+        <h5>$ &nbsp</h5>
         <h5 id="bag-rate"> <%= @bag.rate %></h5>
-        <h5> $ / day</h5>
+        <h5>&nbsp per day</h5>
         </div>
         <%= link_to "Back to the index", bags_path %>
       </div>
