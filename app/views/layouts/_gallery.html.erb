@@ -1,0 +1,46 @@
+<% if @bag.photos.size == 3 %>
+  <section class="gallery">
+    <div class="gallery__item">
+      <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
+      <%= cl_image_tag @bag.photos.first.key, height: 400, width: 600, crop: :fill, class: "gallery__img" %>
+      <label for="img-1" class="gallery__thumb">
+        <%= cl_image_tag @bag.photos.first.key, height: 100, width: 200, crop: :fill %>
+      </label>
+    </div>
+    <div class="gallery__item">
+      <input type="radio" id="img-2" name="gallery" class="gallery__selector"/>
+      <%= cl_image_tag @bag.photos[1].key, height: 400, width: 600, crop: :fill, class: "gallery__img" %>
+      <label for="img-2" class="gallery__thumb">
+        <%= cl_image_tag @bag.photos[1].key, height: 100, width: 200, crop: :fill %>
+      </label>
+    </div>
+    <div class="gallery__item">
+      <input type="radio" id="img-3" name="gallery" class="gallery__selector"/>
+      <%= cl_image_tag @bag.photos.last.key, height: 400, width: 600, crop: :fill, class: "gallery__img" %>
+      <label for="img-3" class="gallery__thumb">
+        <%= cl_image_tag @bag.photos.last.key, height: 100, width: 200, crop: :fill %>
+      </label>
+    </div>
+  </section>
+  <% elsif @bag.photos.size == 2 %>
+  <section class="gallery">
+    <div class="gallery__item">
+      <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
+      <%= cl_image_tag @bag.photos.first.key, height: 400, width: 600, crop: :fill, class: "gallery__img" %>
+      <label for="img-1" class="gallery__thumb">
+        <%= cl_image_tag @bag.photos.first.key, height: 100, width: 200, crop: :fill %>
+      </label>
+    </div>
+    <div class="gallery__item">
+      <input type="radio" id="img-2" name="gallery" class="gallery__selector"/>
+      <%= cl_image_tag @bag.photos[1].key, height: 400, width: 300, crop: :fill, class: "gallery__img" %>
+      <label for="img-2" class="gallery__thumb">
+        <%= cl_image_tag @bag.photos[1].key, height: 100, width: 300, crop: :fill %>
+      </label>
+    </div>
+  </section>
+  <% else %>
+    <div class="image">
+      <%= cl_image_tag @bag.photos.first.key, height: 513, width: 600, crop: :fill, style: "margin-top: 10px"%>
+    </div>
+<% end %>
