@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="container d-flex py-2">
+  <div class="container d-flex py-2 justify-content-between">
     <div class="container-bag">
       <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
         <h1 ><%=  @bag.name %></h1>
@@ -25,10 +25,10 @@
         <h5>&nbsp per day</h5>
         </div>
         <br>
-        <%= link_to "Back", bags_path, id: "back-button" %>
+        <%= link_to "Back", bags_path, class: "btn btn-brand-rev" %>
         <% if current_user == @bag.user %>
-            <%= link_to "Edit Bag", edit_bag_path, id: "back-button" %>
-            <%= link_to "Delete Bag", bag_path(@bag), id: "back-button", method: :delete, data: { confirm: "Are you sure?" }   %>
+            <%= link_to "Edit Bag", edit_bag_path, class: "btn btn-brand-rev" %>
+            <%= link_to "Delete Bag", bag_path(@bag), class: "btn btn-brand-cancel", method: :delete, data: { confirm: "Are you sure?" }   %>
         <% end %>
         <br>
       </div>
