@@ -1,30 +1,14 @@
 <div>
-  <div id="map"
-      style="width: 1140px; height: 400px; margin: 10px auto;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <div style=" width: 1140px; height: 400px; margin: auto;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <% i = 1 %>
-      <% ((@bag.photos.size)-1).times do %>
-      <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>"></li>
-      <% i += 1 %>
-      <% end %>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= cl_image_tag @bag.photos.first.key, height: 400, width: 1140, crop: :fill %>
-        </div>
-          <% @bag.photos[1..@bag.photos.size].each do |photo| %>
-          <div class="carousel-item ">
-            <%= cl_image_tag photo.key, height: 400, width: 1140, crop: :fill %>
-          </div>
-        <%end%>
+  <div class="d-flex justify-content-center">
+    <div id="map"
+        style="width: 600px; height: 513px; margin: 10px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div>
+      <%= render '../views/layouts/gallery' %>
     </div>
   </div>
-
   <div class="container d-flex py-2">
     <div class="container-bag">
       <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
@@ -60,3 +44,4 @@
       <%= link_to "Edit", edit_bag_path %>
       <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
   <% end %>
+
