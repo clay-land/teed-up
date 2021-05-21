@@ -9,10 +9,11 @@
         <li>Accepted: <strong><%= @rental.accepted ? 'Yes✔️' : 'Pending..' %></strong></li>
         <br>
         <% total_days = ((@rental.end_date - @rental.start_date) + 1).to_i %>
+        <% bag_rate = @rental.bag.rate %>
         <li>Total days: <%= pluralize(total_days, 'day')%></li>
-        <li>Bag rate: $ <%= @rental.bag.rate %> per day</li>
+        <li>Bag rate: $ <%= '%.2f' % (bag_rate) %> per day</li>
         <hr>
-        <li><strong>Total: $ <%= '%.2f' % (total_days * @rental.bag.rate) %></strong></li>
+        <li><strong>Total: $ <%= '%.2f' % (total_days * bag_rate) %></strong></li>
       </ul>
 
       <% if current_user == @rental.bag.user %>
