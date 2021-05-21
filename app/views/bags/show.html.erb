@@ -9,6 +9,7 @@
       <%= render '../views/layouts/gallery' %>
     </div>
   </div>
+   
   <div class="container d-flex py-2">
     <div class="container-bag">
       <div class="show-headers d-flex align-items-baseline" style="margin-top: 20px">
@@ -44,4 +45,3 @@
       <%= link_to "Edit", edit_bag_path %>
       <%= link_to "Destroy", bag_path(@bag) , method: :delete, data: { confirm: "Are you sure?" }   %>
   <% end %>
-
