@@ -45,11 +45,11 @@
               <% else %>
                 <%= cl_image_tag "3tzknnb0s353vzvkwaecqc1a7y1y", class: "card-img-top" %>
               <% end %>
-              
+
               <div class="card-body">
                 <p><%= bag.location %></p>
                 <h5> <%= bag.name %> </h5>
-                <h5> <%= bag.rate %> $ / day</h5>
+                <h5> <%= '%.2f' % bag.rate %> $ / day</h5>
               </div>
             </div>
           </a>
@@ -60,12 +60,12 @@
               <div class="card-body">
                 <p><%= bag.location %></p>
                 <h5> <%= bag.name %> </h5>
-                <h5> <%= bag.rate %> $ / day</h5>
+                <h5> <%= '%.2f' % bag.rate %> $ / day</h5>
               </div>
             </div>
           </a>
           <% end %>
-          
+
         <% end  %>
       </div>
     </div>
