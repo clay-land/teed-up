@@ -2,6 +2,7 @@ class BagsController < ApplicationController
   before_action :set_bag, only: [:show, :destroy, :update, :edit]
 
   def index
+    @bag = Bag.new
     if params[:query].present? && params[:search_by] == "location"
       @bags = policy_scope(Bag.near(params[:query], params[:km].to_i))
     elsif params[:query].present? && params[:search_by] == "brand"

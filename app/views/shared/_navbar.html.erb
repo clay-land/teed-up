@@ -14,7 +14,11 @@
           <strong><%= link_to "Home", "/", class: "nav-link" %></strong>
         </li>
         <li class="nav-item">
-          <strong><%= link_to "List a bag", "/bags/new", class: "nav-link" %></strong>
+          <!-- Button trigger modal -->
+          <%# <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#new-list-modal">
+            Create a new list
+          </button> %>
+          <a href="#newbagmodal" data-toggle="modal" data-target="#newbagmodal" class="nav-link"><strong>List a bag</strong></a>
         </li>
         <li class="nav-item">
           <strong><%= link_to "Rentals", "/rentals", class: "nav-link" %></strong>
