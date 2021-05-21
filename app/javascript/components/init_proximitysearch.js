@@ -6,8 +6,6 @@ const initProximitysearch = () => {
   const searchBar = searchForm.querySelector('#query');
   const proximitySelect = document.getElementById('km-select');
 
-  console.log(proximitySelect);
-
   brandButton.addEventListener('click', (event) => {
     proximitySelect.style.display = 'none';
   })
