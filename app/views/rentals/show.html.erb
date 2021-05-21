@@ -8,10 +8,11 @@
         <li>End Date: <%= @rental.end_date.strftime("%b %d, %Y") %></li>
         <li>Accepted: <strong><%= @rental.accepted ? 'Yes✔️' : 'Pending..' %></strong></li>
         <br>
-        <li>Total days: <%= total_days = ((@rental.end_date - @rental.start_date) + 1).to_i %> day(s)</li>
-        <li>Bag rate: $<%= @rental.bag.rate %> per day</li>
+        <% total_days = ((@rental.end_date - @rental.start_date) + 1).to_i %>
+        <li>Total days: <%= pluralize(total_days, 'day')%></li>
+        <li>Bag rate: $ <%= @rental.bag.rate %> per day</li>
         <hr>
-        <li><strong>Total: $<%= total_days * @rental.bag.rate %></strong></li>
+        <li><strong>Total: $ <%= '%.2f' % (total_days * @rental.bag.rate) %></strong></li>
       </ul>
 
       <% if current_user == @rental.bag.user %>
