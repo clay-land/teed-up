@@ -39,7 +39,7 @@
         <% if current_user == bag.user %>
           <a class="card-a" href=" <%= bag_path(bag) %>">
 
-            <div class="card mx-0" >
+            <div class="card mx-0 owned" >
               <% if bag.photos.attached? %>
                 <%= cl_image_tag bag.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
               <% else %>
