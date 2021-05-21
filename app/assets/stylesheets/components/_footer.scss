@@ -1,7 +1,8 @@
 .footer-container {
-  margin: 4px;
+  margin-top: 48px;
   padding: 4px;
-  background-color:#F7F7F7;
+  background-color:#efefef;
+  border: 1px solid #e1e1e1;
 }
 
 .footer {
@@ -10,13 +11,13 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0px 50px;
+  padding: 0px 40px;
   color: rgba(0,0,0,0.3);
 }
 
 .footer-list {
   width: 300px;
-padding: 0px 50px
+padding: 18px 50px
 }
 
 .footer-list h5 {
@@ -32,7 +33,7 @@ padding: 0px 50px
 
 .footer-list li {
   list-style-type: none;
-  list-style-position: inside; 
+  list-style-position: inside;
 }
 
 .footer-list a:hover {
@@ -59,14 +60,14 @@ padding: 0px 50px
 
 
 // Small devices (landscape phones, 576px and up)
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
   .options-footer {
   flex-wrap: wrap;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .options-footer {
   flex-wrap: nowrap;
   }
